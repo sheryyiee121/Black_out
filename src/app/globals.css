@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  /* Backgrounds */
+  --bg-white: rgb(255, 255, 255);
+  --bg-faded: rgba(245, 245, 245, 0.4);
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --bg-white-10: rgba(255, 255, 255, 0.1);
+  --bg-dark-05: rgba(23, 23, 23, 0.05);
+  --bg-faded-30: rgba(245, 245, 245, 0.3);
+  --bg-gray-50: rgba(227, 227, 227, 0.5);
+  --bg-dark-10: rgba(23, 23, 23, 0.1);
+  --bg-faded-50: rgba(245, 245, 245, 0.5);
+  /* Text */
+  --text-black: rgb(0, 0, 0);
+  --text-dark: rgb(23, 23, 23);
+  --text-white-70: rgba(255, 255, 255, 0.7);
+  --text-white: rgb(255, 255, 255);
+  --text-muted-60: rgba(115, 115, 115, 0.6);
+  --text-muted: rgb(115, 115, 115);
+  --text-light: rgb(227, 227, 227);
+  --text-muted-30: rgba(115, 115, 115, 0.3);
+  --text-accent: rgb(249, 115, 22);
+  /* Borders */
+  --border-light: rgb(227, 227, 227);
+  --border-black: rgb(0, 0, 0);
+  --border-white-20: rgba(255, 255, 255, 0.2);
+  --border-light-30: rgba(227, 227, 227, 0.3);
+  --border-light-50: rgba(227, 227, 227, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--bg-white);
+  --color-foreground: var(--text-dark);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg-white);
+  color: var(--text-dark);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scroll for carousel */
+.scroll-smooth-carousel {
+  scroll-behavior: smooth;
+}
