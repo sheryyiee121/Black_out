@@ -2,6 +2,8 @@ import Hero from "@/components/Hero";
 import WelcomeSection from "@/components/WelcomeSection";
 import FleetIntro from "@/components/FleetIntro";
 import FleetCarousel from "@/components/FleetCarousel";
+import FindCarSection from "@/components/FindCarSection";
+import EnquirySection from "@/components/EnquirySection";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
         <FleetIntro />
       </section>
       <FleetCarousel />
+      <FindCarSection />
+      <EnquirySection />
     </>
   );
 }

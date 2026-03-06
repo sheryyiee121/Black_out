@@ -40,7 +40,7 @@ export default function WelcomeSection() {
     <section className="bg-white border-t border-[rgb(227,227,227)]">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-          <div>
+          <div data-animate="slide-left">
             <p className="text-[#737373] text-xs sm:text-sm font-medium uppercase tracking-widest mb-4">
               Are you looking for rent a car near me?
             </p>
@@ -51,10 +51,10 @@ export default function WelcomeSection() {
             <p className="mt-5 text-[#737373] text-base leading-relaxed max-w-lg">
               Rent a car and get free airport pick-and-drop service. We offer our services in Brisbane, Gold Coast and Sunshine Coast at competitive rates!
             </p>
-            <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <div data-animate="icon-stagger" className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
               {features.map((f) => (
                 <div key={f.title} className="flex flex-col items-start">
-                  <span className="text-[#171717]" aria-hidden>
+                  <span data-animate-icon className="inline-block text-[#171717] transition-transform duration-300 hover:scale-110 hover:rotate-6" aria-hidden>
                     {f.icon}
                   </span>
                   <p className="mt-3 text-[#171717] text-sm font-medium uppercase tracking-wide leading-snug">
@@ -64,7 +64,7 @@ export default function WelcomeSection() {
               ))}
             </div>
           </div>
-          <div className="relative aspect-[4/5] max-h-[560px] w-full overflow-hidden rounded-lg lg:ml-auto">
+          <div data-animate="slide-right" className="relative aspect-[4/5] max-h-[560px] w-full overflow-hidden rounded-lg lg:ml-auto">
             <Image
               src="/customs/pexels-shkrabaanthony-7144185.jpg"
               alt="Blackout Car Rental - Professional service"

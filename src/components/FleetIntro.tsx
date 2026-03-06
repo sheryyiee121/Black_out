@@ -12,7 +12,7 @@ export default function FleetIntro() {
         aria-hidden
       />
 
-      <div className="relative z-10 mt-[18vh] bg-white mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+      <div data-animate="fade-up" className="relative z-10 mt-[18vh] bg-white mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
         <h2 className="text-[#171717] text-4xl sm:text-5xl font-light tracking-tight">
           Our Fleet.
         </h2>

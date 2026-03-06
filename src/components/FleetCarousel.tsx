@@ -73,7 +73,7 @@ export default function FleetCarousel() {
 
   return (
     <section id="fleet" className="bg-white border-t border-[rgb(227,227,227)]">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+      <div data-animate="fade-up" className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
         {/* Tabs + View All Fleet */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-2">

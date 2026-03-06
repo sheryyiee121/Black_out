@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AnimationWrapper from "@/components/AnimationWrapper";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} min-h-screen bg-white text-[#171717] text-base font-normal antialiased`} style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
         <Header />
-        {children}
+        <AnimationWrapper>{children}</AnimationWrapper>
         <Footer />
       </body>
     </html>
