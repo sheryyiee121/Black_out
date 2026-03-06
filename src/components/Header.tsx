@@ -56,7 +56,7 @@ export default function Header() {
         <nav
           className="hidden md:flex items-center justify-center gap-8 px-5 py-1.5 rounded-full"
           style={{
-            background: "rgba(245, 245, 245, 0.5)",
+            background: "rgba(245, 245, 245, 1.5)",
           }}
         >
           {navLinks.map((link) => (
