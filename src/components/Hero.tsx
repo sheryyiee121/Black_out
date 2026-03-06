@@ -42,10 +42,10 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center px-4 pt-24 pb-16 sm:px-6 lg:px-8 text-center">
         <p ref={taglineRef} className="text-white text-sm sm:text-base font-medium uppercase tracking-widest mb-4">
-          Blackout Rentals
+          Blackout Car Rental
         </p>
         <h1 ref={titleRef} className="text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight max-w-4xl">
-          Premium Luxury Car Hire Brisbane
+          Premium Luxury Car Hire Islamabad
         </h1>
         <p ref={descRef} className="mt-6 max-w-2xl text-white text-base sm:text-lg font-normal opacity-90">
           Rent a car that matches the occasion. Professional chauffeurs, VIP cars and self-drive luxury car rentals across Brisbane, Gold Coast, Sunshine Coast and Noosa Heads. Effortless from first enquiry to handover.

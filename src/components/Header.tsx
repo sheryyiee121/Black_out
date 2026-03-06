@@ -33,21 +33,21 @@ export default function Header() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-md"
+      className="fixed top-0 left-0 right-0 z-50 overflow-visible border-b backdrop-blur-md"
       style={{
         background: "rgb(255, 255, 255)",
         borderColor: "rgb(227, 227, 227)",
       }}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
-        {/* Left - Logo */}
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
+        {/* Left - Logo: bigger than navbar, overflows the bar */}
         <Link href="/" className="flex shrink-0 items-center">
           <Image
             src="/logo/Blackout_Rental_Logo-removebg-preview.png"
             alt="Blackout Rental"
             width={300}
             height={100}
-            className="h-20 w-auto object-contain object-left brightness-0 sm:h-20"
+            className="h-20 w-auto object-contain object-left brightness-0 sm:h-24"
             priority
           />
         </Link>
