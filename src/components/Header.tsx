@@ -8,8 +8,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/fleet", label: "Fleet" },
   { href: "/services", label: "Services", hasDropdown: true },
-  { href: "/journal", label: "Journal" },
-  { href: "/#enquiry", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function PhoneIcon() {
@@ -82,7 +81,7 @@ export default function Header() {
             <span>1300 887 174</span>
           </a>
           <Link
-            href="/#enquiry"
+            href="/contact"
             className="rounded-full px-4 py-1.5 text-sm font-medium text-white transition hover:opacity-90 shrink-0"
             style={{ background: "rgb(0, 0, 0)" }}
           >
@@ -126,7 +125,7 @@ export default function Header() {
               1300 887 174
             </a>
             <Link
-              href="/#enquiry"
+              href="/contact"
               className="rounded-full px-4 py-1.5 text-center text-sm font-medium text-white mt-2"
               style={{ background: "rgb(0, 0, 0)" }}
               onClick={() => setMobileOpen(false)}
