@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimationWrapper from "@/components/AnimationWrapper";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Header />
         <AnimationWrapper>{children}</AnimationWrapper>
         <Footer />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

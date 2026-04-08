@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FLEET_CARS } from "@/data/fleet";
 import { notFound } from "next/navigation";
 import CarEnquiryForm from "@/components/CarEnquiryForm";
+import { PHONE_TEL_HREF, SNAPCHAT_HREF, whatsappChatLink } from "@/lib/contact";
 
 export async function generateStaticParams() {
   return FLEET_CARS.map((car) => ({ id: car.id }));
@@ -82,20 +83,30 @@ export default async function FleetDetailPage({ params }: { params: Promise<{ id
               <p className="mt-2 text-center text-sm text-[#737373]">Insurance included · Crypto accepted</p>
               <div className="mt-6 flex flex-wrap gap-4 justify-center">
                 <a
-                  href="tel:1300887174"
+                  href={PHONE_TEL_HREF}
                   className="inline-flex items-center gap-2 rounded-xl border-2 border-[#171717] bg-white px-5 py-3 text-sm font-medium text-[#171717] hover:bg-[#171717] hover:text-white transition"
                 >
                   <PhoneIcon />
                   Call
                 </a>
                 <a
-                  href="https://wa.me/611300887174"
+                  href={whatsappChatLink(
+                    `Hello Blackout Car Rental, I'm interested in renting the ${car.name} in ${location}.`
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#171717] px-5 py-3 text-sm font-medium text-white hover:bg-black transition"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-medium text-white hover:bg-[#20bd5a] transition"
                 >
                   <WhatsAppIcon />
                   WhatsApp
+                </a>
+                <a
+                  href={SNAPCHAT_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl border-2 border-[#171717] bg-white px-5 py-3 text-sm font-medium text-[#171717] hover:bg-[#fafafa] transition"
+                >
+                  Snapchat (@Blackoutrental)
                 </a>
               </div>
             </div>

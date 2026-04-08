@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { FLEET_CARS, FLEET_CATEGORIES, type FleetCategory, type FleetCar } from "@/data/fleet";
+import FleetCarCard from "@/components/FleetCarCard";
+import { FLEET_CARS, FLEET_CATEGORIES, type FleetCategory } from "@/data/fleet";
 
 function ChevronRight() {
   return (
@@ -24,38 +24,6 @@ function ChevronLeft() {
 const CARD_WIDTH = 320;
 const CARD_GAP = 40;
 const SCROLL_STEP = CARD_WIDTH + CARD_GAP;
-
-function CarCard({ car }: { car: FleetCar }) {
-  return (
-    <article className="group shrink-0 w-[280px] sm:w-[320px] rounded-2xl overflow-hidden bg-white border border-[rgb(227,227,227)] shadow-sm hover:shadow-xl hover:-translate-y-2 hover:border-[rgba(227,227,227,0.8)] transition-all duration-300 ease-out">
-      <div className="relative aspect-[4/3] bg-[rgba(245,245,245,0.5)] overflow-hidden">
-        <Image
-          src={car.image}
-          alt={car.name}
-          fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
-          sizes="(max-width: 640px) 280px, 320px"
-        />
-      </div>
-      <div className="p-5">
-        <h3 className="text-[#171717] font-medium text-lg leading-tight">
-          {car.name}
-          {car.plate && <span className="block text-sm text-[#737373] font-normal mt-0.5">{car.plate}</span>}
-        </h3>
-        <p className="mt-2 text-[#737373] text-sm leading-snug line-clamp-2">
-          {car.description}
-        </p>
-        <Link
-          href={`/fleet/${car.id}`}
-          className="mt-4 inline-flex items-center justify-center rounded-xl w-full py-2.5 text-sm font-medium text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
-          style={{ background: "rgb(0, 0, 0)" }}
-        >
-          View Details
-        </Link>
-      </div>
-    </article>
-  );
-}
 
 export default function FleetCarousel() {
   const [activeCategory, setActiveCategory] = useState<FleetCategory>("All");
@@ -133,7 +101,7 @@ export default function FleetCarousel() {
             }}
           >
             {filteredCars.map((car) => (
-              <CarCard key={car.id} car={car} />
+              <FleetCarCard key={car.id} car={car} variant="carousel" />
             ))}
           </div>
         </div>

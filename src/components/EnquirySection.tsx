@@ -1,6 +1,41 @@
 "use client";
 
+import { whatsappChatLink } from "@/lib/contact";
+import WhatsAppSendIcon from "@/components/WhatsAppSendIcon";
+
 export default function EnquirySection() {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    const fd = new FormData(form);
+    const fullName = String(fd.get("fullName") ?? "").trim();
+    const email = String(fd.get("email") ?? "").trim();
+    const phone = String(fd.get("phone") ?? "").trim();
+    const vehicle = String(fd.get("vehicle") ?? "").trim();
+    const notes = String(fd.get("notes") ?? "").trim();
+    const serviceEl = form.elements.namedItem("service") as HTMLSelectElement;
+    const serviceLabel = serviceEl?.options[serviceEl.selectedIndex]?.text?.trim() ?? "";
+
+    const text = [
+      "Hello Blackout Car Rental,",
+      "",
+      "I would like a tailored quote:",
+      "",
+      `Name: ${fullName}`,
+      `Email: ${email}`,
+      `Phone: ${phone}`,
+      `Service: ${serviceLabel}`,
+      `Vehicle: ${vehicle || "—"}`,
+      `Notes: ${notes || "—"}`,
+    ].join("\n");
+
+    window.open(whatsappChatLink(text), "_blank", "noopener,noreferrer");
+  }
+
   return (
     <section id="enquiry" className="relative min-h-[100vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Background: luxury cars */}
@@ -30,7 +65,7 @@ export default function EnquirySection() {
             Tell us what you need. We reply fast with availability and a tailored quote.
           </p>
 
-          <form className="mt-5 space-y-3" onSubmit={(e) => e.preventDefault()}>
+          <form className="mt-5 space-y-3" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label htmlFor="enq-name" className="mb-1 block text-xs font-medium text-[#d4d4d4]">
@@ -38,6 +73,7 @@ export default function EnquirySection() {
                 </label>
                 <input
                   id="enq-name"
+                  name="fullName"
                   type="text"
                   required
                   placeholder="Your full name"
@@ -50,6 +86,7 @@ export default function EnquirySection() {
                 </label>
                 <input
                   id="enq-email"
+                  name="email"
                   type="email"
                   required
                   placeholder="your.email@example.com"
@@ -64,9 +101,10 @@ export default function EnquirySection() {
                 </label>
                 <input
                   id="enq-phone"
+                  name="phone"
                   type="tel"
                   required
-                  placeholder="+61 40X XXX XXX"
+                  placeholder="+92 3XX XXXXXXX"
                   className="w-full rounded-lg border border-white/15 bg-[rgba(38,38,38,0.9)] px-3 py-2.5 text-sm text-white placeholder-[#737373] focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30"
                 />
               </div>
@@ -76,6 +114,7 @@ export default function EnquirySection() {
                 </label>
                 <select
                   id="enq-service"
+                  name="service"
                   required
                   className="w-full rounded-lg border border-white/15 bg-[rgba(38,38,38,0.9)] px-3 py-2.5 text-sm text-white focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30 [&>option]:bg-[#262626]"
                 >
@@ -94,6 +133,7 @@ export default function EnquirySection() {
               </label>
               <input
                 id="enq-vehicle"
+                name="vehicle"
                 type="text"
                 placeholder="e.g., Porsche 911, Executive sedan, Sports car"
                 className="w-full rounded-lg border border-white/15 bg-[rgba(38,38,38,0.9)] px-3 py-2.5 text-sm text-white placeholder-[#737373] focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30"
@@ -105,6 +145,7 @@ export default function EnquirySection() {
               </label>
               <textarea
                 id="enq-notes"
+                name="notes"
                 rows={2}
                 placeholder="Tell us about your dates, special requirements, or any questions you have."
                 className="w-full rounded-lg border border-white/15 bg-[rgba(38,38,38,0.9)] px-3 py-2.5 text-sm text-white placeholder-[#737373] focus:border-white/30 focus:outline-none focus:ring-1 focus:ring-white/30 resize-none"
@@ -112,16 +153,10 @@ export default function EnquirySection() {
             </div>
             <button
               type="submit"
-              data-icon-arrow
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-[#171717] hover:bg-[#f5f5f5] transition mt-4"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-[#20bd5a]"
             >
-              Get my tailored quote
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#171717] text-white">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </span>
+              <WhatsAppSendIcon />
+              Send via WhatsApp
             </button>
           </form>
         </div>
