@@ -8,7 +8,7 @@ import { PHONE_DISPLAY, PHONE_TEL_HREF, WHATSAPP_PREFILL_INTRO, whatsappChatLink
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/fleet", label: "Fleet" },
-  { href: "/services", label: "Services", hasDropdown: true },
+  { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];
 
